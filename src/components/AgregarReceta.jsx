@@ -19,26 +19,32 @@ function AgregarReceta() {
         setDescripcion('')
     }
     return (
-        <div className="container">
+        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Ingrese el título de la receta"
-                    value={titulo}
-                    onChange={(e) => setTitulo(e.target.value)}
-                />
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Ingrese la descripción de la receta"
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                />
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Ingrese el título de la receta"
+                        value={titulo}
+                        onChange={(e) => setTitulo(e.target.value)}
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Ingrese la descripción de la receta"
+                        value={descripcion}
+                        onChange={(e) => setDescripcion(e.target.value)}
+                    />
+                </div>
                 <button
                     type="submit"
-                    className="btn btn-primary"
-                >Agregar Receta</button>
+                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                >
+                    Agregar Receta
+                </button>
             </form>
         </div>
     )
