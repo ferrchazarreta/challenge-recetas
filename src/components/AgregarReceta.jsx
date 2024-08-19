@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { RecetasContext } from '../hooks/RecetasContext'
+import { RecetasContext } from '../context/RecetasContext'
+import { Link } from 'react-router-dom'
 
 function AgregarReceta() {
     const { agregarReceta } = useContext(RecetasContext)
@@ -41,8 +42,7 @@ function AgregarReceta() {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-                >
+                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
                     Agregar Receta
                 </button>
             </form>
