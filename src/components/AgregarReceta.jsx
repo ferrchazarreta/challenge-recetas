@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { RecetasContext } from '../context/RecetasContext'
-import { Link } from 'react-router-dom'
 
 function AgregarReceta() {
     const { agregarReceta } = useContext(RecetasContext)

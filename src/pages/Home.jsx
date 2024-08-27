@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import { RecetaProvider } from "../context/RecetasContext";
+import { AuthProvider } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
 function Home() {

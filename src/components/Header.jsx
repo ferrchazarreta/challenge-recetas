@@ -1,7 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {Fragment} from 'react'
+import { Link, Navigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function Header() {
+    const { logout } = useAuth()
+    const handleLogout = (usuarioData) => {
+        logout(usuarioData)
+    }
+    const { usuario } = useAuth()
+    console.log(usuario)
+    
     return (
         <header class="bg-gray-100 body-font">
             <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -11,9 +19,20 @@ function Header() {
                     </svg>
                     <span class="ml-3 text-xl">Recetas</span>
                 </Link>
-                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-semibold">
                     <Link to={'/recetas'} class="mr-5 hover:text-gray-900">Lista</Link>
-                    <Link to={'/nueva-receta'} class="mr-5 hover:text-gray-900">Nueva Receta</Link>
+                    {usuario!==null || usuario?.length > 0 ? (
+                        <Fragment>
+                            <Link to={'/nueva-receta'} class="mr-5 hover:text-gray-900">Nueva Receta</Link>
+                            <Link to={'/'} onClick={handleLogout} class="mr-5 hover:text-gray-900">
+                                <button className="bg-sky-500 text-white font-bold py-1 px-2 rounded" >Cerrar Sesion</button>
+                            </Link>
+                        </Fragment>
+                    ) :
+                            <Link to={'/login'} class="mr-5 hover:text-gray-900">
+                                <button className="bg-sky-500 text-white font-bold py-1 px-2 rounded" >Iniciar Sesion</button>
+                            </Link>
+                    }
                 </nav>
             </div>
         </header>
